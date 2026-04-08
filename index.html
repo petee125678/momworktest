@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Safety Plan — Indigenous-Informed · Toronto</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal:#0F6E56; --teal-mid:#1D9E75; --teal-light:#E1F5EE; --teal-pale:#F0FAF6;
+  --amber:#BA7517; --amber-light:#FAEEDA; --amber-pale:#FEF9F0;
+  --red:#A93226; --red-light:#FDEDEC;
+  --purple:#5B2C8F; --purple-light:#EDE7F6;
+  --ink:#1A2B1F; --ink-mid:#3D5246; --ink-soft:#6B7F74; --ink-pale:#A8BCB2;
+  --surface:#F7FAF8; --white:#FFFFFF;
+  --border:rgba(15,110,86,0.12); --border-mid:rgba(15,110,86,0.22);
+  --serif:'Fraunces',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
+  --r:12px; --rs:8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--surface);color:var(--ink);line-height:1.6;min-height:100vh;}
+
+/* ── TOP NAV ── */
+.topnav{background:var(--teal);padding:0 24px;display:flex;align-items:stretch;gap:0;position:sticky;top:0;z-index:200;}
+.topnav-brand{font-family:var(--serif);font-size:15px;color:#9FE1CB;font-weight:300;font-style:italic;padding:14px 20px 14px 0;border-right:1px solid rgba(255,255,255,.1);margin-right:4px;white-space:nowrap;}
+.topnav-tabs{display:flex;gap:0;flex:1;overflow-x:auto;}
+.topnav-tab{padding:14px 18px;font-size:13px;color:rgba(255,255,255,.65);cursor:pointer;border:none;background:transparent;font-family:var(--sans);white-space:nowrap;border-bottom:3px solid transparent;transition:all .15s;}
+.topnav-tab:hover{color:#fff;}
+.topnav-tab.active{color:#fff;border-bottom-color:#9FE1CB;font-weight:500;}
+.topnav-crisis{margin-left:auto;padding:10px 16px;background:rgba(169,50,38,.35);border:1px solid rgba(255,255,255,.2);border-radius:var(--rs);font-size:12px;color:#fff;cursor:pointer;font-family:var(--sans);white-space:nowrap;align-self:center;font-weight:500;}
+.topnav-crisis:hover{background:rgba(169,50,38,.55);}
+
+/* ── VIEWS ── */
+.view{display:none;}
+.view.active{display:block;}
+
+/* ════════════════════════════════
+   HOME VIEW
+════════════════════════════════ */
+.hero{background:var(--teal);padding:60px 24px 72px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-80px;right:-100px;width:380px;height:380px;border-radius:50%;border:1px solid rgba(159,225,203,.12);}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-80px;width:260px;height:260px;border-radius:50%;border:1px solid rgba(159,225,203,.08);}
+.hero-pill{display:inline-block;padding:4px 14px;border-radius:20px;background:rgba(255,255,255,.1);border:1px solid rgba(159,225,203,.3);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9FE1CB;margin-bottom:20px;}
+.hero h1{font-family:var(--serif);font-size:clamp(30px,6vw,50px);font-weight:300;font-style:italic;color:#fff;line-height:1.2;margin-bottom:16px;max-width:600px;margin-left:auto;margin-right:auto;}
+.hero h1 em{font-style:normal;color:#9FE1CB;}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.72);max-width:480px;margin:0 auto 28px;line-height:1.7;}
+.hero-badges{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;}
+.hero-badge{padding:4px 12px;border-radius:20px;background:rgba(255,255,255,.1);border:1px solid rgba(159,225,203,.2);font-size:11px;color:rgba(255,255,255,.8);}
+.hero-cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.btn-hero{padding:13px 26px;border-radius:var(--rs);border:none;background:#fff;font-family:var(--serif);font-size:16px;font-weight:400;font-style:italic;color:var(--teal);cursor:pointer;transition:all .15s;}
+.btn-hero:hover{background:var(--teal-light);transform:translateY(-1px);}
+.btn-hero-ghost{padding:13px 26px;border-radius:var(--rs);border:1px solid rgba(255,255,255,.3);background:transparent;font-family:var(--sans);font-size:14px;color:rgba(255,255,255,.9);cursor:pointer;transition:all .15s;}
+.btn-hero-ghost:hover{border-color:#fff;color:#fff;}
+.hero-ack{margin-top:32px;font-size:12px;color:rgba(159,225,203,.55);font-style:italic;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;}
+
+.home-body{max-width:900px;margin:0 auto;padding:48px 24px 64px;}
+.home-section-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;}
+.home-section-title{font-family:var(--serif);font-size:clamp(22px,4vw,30px);font-weight:300;color:var(--ink);margin-bottom:10px;line-height:1.3;}
+.home-section-sub{font-size:14px;color:var(--ink-soft);max-width:500px;line-height:1.7;margin-bottom:32px;}
+
+.tool-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:48px;}
+@media(max-width:560px){.tool-cards{grid-template-columns:1fr;}}
+.tool-card{background:var(--white);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;cursor:pointer;transition:all .2s;text-align:left;}
+.tool-card:hover{border-color:var(--teal-mid);transform:translateY(-2px);}
+.tool-card-bar{height:5px;}
+.tool-card-body{padding:22px 24px;}
+.tool-card-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+.tool-card-title{font-family:var(--serif);font-size:19px;font-weight:400;color:var(--ink);margin-bottom:5px;font-style:italic;}
+.tool-card-sub{font-size:13px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px;}
+.tool-card-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
+.tag{padding:3px 8px;border-radius:20px;font-size:11px;}
+.tool-card-cta{font-size:13px;font-weight:500;display:flex;align-items:center;gap:4px;}
+
+.context-strip{background:var(--teal-pale);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:36px 24px;margin-bottom:40px;}
+.context-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px;margin-top:24px;}
+.ctx-item{display:flex;gap:10px;align-items:flex-start;}
+.ctx-dot{width:7px;height:7px;border-radius:50%;background:var(--teal-mid);flex-shrink:0;margin-top:6px;}
+.ctx-title{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:2px;}
+.ctx-sub{font-size:12px;color:var(--ink-soft);line-height:1.55;}
+
+.crisis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:20px;}
+.c-card{padding:14px 16px;border-radius:var(--r);border:1px solid var(--border);background:var(--white);display:flex;gap:10px;align-items:flex-start;}
+.c-accent{width:4px;border-radius:2px;flex-shrink:0;min-height:36px;}
+.c-name{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:2px;}
+.c-num{font-size:13px;color:var(--teal);font-weight:500;margin-bottom:2px;}
+.c-detail{font-size:11px;color:var(--ink-soft);line-height:1.5;}
+.emergency-bar{margin-top:14px;padding:14px 18px;border-radius:var(--r);background:var(--red-light);border:1px solid rgba(169,50,38,.2);display:flex;align-items:center;gap:14px;}
+.e-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);font-weight:500;margin-bottom:2px;}
+.e-num{font-family:var(--serif);font-size:22px;color:var(--red);}
+.e-detail{font-size:12px;color:var(--red);opacity:.8;}
+
+/* ════════════════════════════════
+   SHARED FORM STYLES (both tools)
+════════════════════════════════ */
+.tool-wrap{max-width:680px;margin:0 auto;padding:32px 24px 72px;}
+.prog-track{height:3px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:6px;}
+.prog-fill{height:100%;background:var(--teal-mid);border-radius:2px;transition:width .4s ease;}
+.prog-label{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-soft);margin-bottom:24px;letter-spacing:.03em;}
+.step{display:none;animation:fadeUp .3s ease;}
+.step.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.step-eye{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:5px;}
+.step-title{font-family:var(--serif);font-size:26px;font-weight:300;color:var(--ink);margin-bottom:5px;line-height:1.25;}
+.step-sub{font-size:14px;color:var(--ink-soft);line-height:1.7;margin-bottom:22px;max-width:500px;}
+.field{margin-bottom:14px;}
+.fl{font-size:11px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px;display:block;}
+input[type=text],textarea,select{width:100%;padding:10px 13px;border:1px solid var(--border-mid);border-radius:var(--rs);background:var(--white);font-family:var(--sans);font-size:14px;color:var(--ink);outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none;}
+input[type=text]:focus,textarea:focus,select:focus{border-color:var(--teal-mid);box-shadow:0 0 0 3px rgba(29,158,117,.07);}
+textarea{resize:vertical;min-height:76px;line-height:1.6;}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230F6E56' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;cursor:pointer;}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:480px){.pair{grid-template-columns:1fr;}}
+.callout{padding:10px 13px;border-radius:var(--rs);border-left:3px solid var(--amber);background:var(--amber-pale);font-size:13px;color:var(--amber);line-height:1.6;margin-bottom:14px;}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+.chip{padding:6px 12px;border-radius:20px;border:1px solid var(--border-mid);background:var(--white);font-size:13px;color:var(--ink-mid);cursor:pointer;transition:all .15s;font-family:var(--sans);line-height:1;}
+.chip:hover{border-color:var(--teal-mid);color:var(--teal);}
+.chip.on{background:var(--teal-light);border-color:var(--teal-mid);color:var(--teal);font-weight:500;}
+.chip.on-amber{background:var(--amber-light);border-color:var(--amber);color:var(--amber);font-weight:500;}
+.person-entry{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;margin-bottom:8px;}
+.pe-top{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.pe-num{width:24px;height:24px;border-radius:50%;background:var(--teal-light);color:var(--teal);font-size:11px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pe-label{font-size:13px;color:var(--ink-mid);font-weight:500;flex:1;}
+.rm-btn{background:none;border:none;font-size:17px;color:var(--ink-pale);cursor:pointer;padding:0 4px;border-radius:4px;}
+.rm-btn:hover{color:var(--red);background:var(--red-light);}
+.pe-fields{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;}
+@media(max-width:500px){.pe-fields{grid-template-columns:1fr;}}
+.add-btn{width:100%;padding:10px;margin-bottom:10px;border:1px dashed var(--border-mid);border-radius:var(--r);background:transparent;font-family:var(--sans);font-size:13px;color:var(--teal);cursor:pointer;transition:all .15s;}
+.add-btn:hover{background:var(--teal-pale);border-color:var(--teal-mid);}
+.step-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;}
+.step-badge{width:26px;height:26px;border-radius:50%;background:var(--teal-light);color:var(--teal);font-size:12px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:9px;}
+.nav-row{display:flex;gap:8px;margin-top:24px;padding-top:18px;border-top:1px solid var(--border);}
+.btn-back{padding:10px 16px;border-radius:var(--rs);border:1px solid var(--border-mid);background:transparent;font-family:var(--sans);font-size:14px;color:var(--ink-soft);cursor:pointer;transition:all .15s;}
+.btn-back:hover{color:var(--ink);border-color:var(--ink-soft);}
+.btn-next{padding:11px 22px;border-radius:var(--rs);border:1px solid var(--teal-mid);background:var(--teal);font-family:var(--sans);font-size:14px;font-weight:500;color:#fff;cursor:pointer;transition:all .15s;}
+.btn-next:hover{background:#0D5E49;}
+.btn-gen{padding:12px 26px;border-radius:var(--rs);border:none;background:var(--teal);font-family:var(--serif);font-size:16px;font-style:italic;color:#fff;cursor:pointer;transition:all .15s;}
+.btn-gen:hover{background:#0D5E49;transform:translateY(-1px);}
+
+/* worker setup box */
+.worker-box{background:var(--teal-pale);border:1px solid rgba(29,158,117,.2);border-radius:var(--r);padding:18px;margin-bottom:22px;}
+.worker-box-title{font-size:13px;font-weight:500;color:var(--teal);margin-bottom:3px;}
+.worker-box-sub{font-size:12px;color:var(--ink-soft);margin-bottom:12px;line-height:1.6;}
+.worker-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+@media(max-width:480px){.worker-grid{grid-template-columns:1fr;}}
+.worker-grid input{font-size:13px;padding:9px 12px;}
+
+/* generated plan (full 7-step) */
+.plan-card{background:var(--white);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;margin-bottom:16px;}
+.plan-top{background:var(--teal);padding:22px 26px 20px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;}
+.plan-top-name{font-family:var(--serif);font-size:24px;font-weight:300;color:#fff;font-style:italic;}
+.plan-top-meta{font-size:12px;color:#9FE1CB;margin-top:3px;}
+.plan-top-date{font-size:11px;color:rgba(159,225,203,.7);}
+.plan-body{padding:20px 26px;}
+.plan-sec{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--border);}
+.plan-sec:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.plan-sec-title{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:500;margin-bottom:8px;}
+.warn-row{display:flex;gap:7px;align-items:flex-start;font-size:13px;color:var(--ink-mid);line-height:1.5;margin-bottom:5px;}
+.w-dot{width:5px;height:5px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:6px;}
+.chips-mini{display:flex;flex-wrap:wrap;gap:5px;}
+.chip-mini{padding:3px 9px;border-radius:20px;font-size:12px;background:var(--teal-light);color:var(--teal);border:1px solid rgba(29,158,117,.25);}
+.chip-mini.amber{background:var(--amber-light);color:var(--amber);border-color:rgba(186,117,23,.25);}
+.safe-people{display:flex;flex-direction:column;gap:8px;}
+.safe-person{display:flex;gap:10px;align-items:center;background:var(--teal-pale);border-radius:var(--rs);padding:9px 12px;}
+.safe-av{width:34px;height:34px;border-radius:50%;background:var(--teal-light);border:1.5px solid rgba(29,158,117,.25);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--teal);flex-shrink:0;}
+.safe-name{font-size:13px;font-weight:500;color:var(--ink);}
+.safe-detail{font-size:12px;color:var(--ink-soft);}
+.reasons-q{font-family:var(--serif);font-size:15px;font-style:italic;color:var(--ink-mid);line-height:1.6;padding-left:12px;border-left:2px solid var(--teal-light);}
+.steps-list{display:flex;flex-direction:column;gap:7px;}
+.step-item{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--ink-mid);line-height:1.5;}
+.step-n{width:20px;height:20px;border-radius:50%;background:var(--teal-light);color:var(--teal);font-size:10px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.contacts-list{display:flex;flex-direction:column;gap:7px;}
+.con-row{display:flex;gap:8px;align-items:center;background:var(--surface);border-radius:var(--rs);padding:9px 11px;}
+.con-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.con-name{font-size:12px;font-weight:500;color:var(--ink);}
+.con-num{font-size:11px;color:var(--ink-soft);}
+.plan-footer-strip{background:var(--teal-pale);border-top:1px solid var(--border);padding:10px 26px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.plan-footer-text{font-size:11px;color:var(--ink-soft);font-style:italic;}
+.print-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.btn-print{padding:10px 18px;border-radius:var(--rs);border:1px solid var(--teal-mid);background:var(--teal-light);color:var(--teal);font-size:13px;font-weight:500;cursor:pointer;font-family:var(--sans);}
+.btn-sec-sm{padding:10px 16px;border-radius:var(--rs);border:1px solid var(--border-mid);background:var(--white);color:var(--ink-soft);font-size:13px;cursor:pointer;font-family:var(--sans);}
+.privacy-note{font-size:12px;color:var(--ink-pale);line-height:1.6;padding:10px 12px;background:var(--surface);border-radius:var(--rs);}
+
+/* ════════════════════════════════
+   CARD VIEW (quick card)
+════════════════════════════════ */
+.card-page{background:var(--white);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;max-width:680px;margin:0 auto 16px;}
+.card-header{background:var(--teal);padding:20px 24px 18px;display:flex;align-items:flex-end;justify-content:space-between;}
+.card-hname{font-family:var(--serif);font-size:22px;font-weight:300;color:#fff;font-style:italic;}
+.card-hmeta{font-size:11px;color:#9FE1CB;margin-top:2px;}
+.card-hdate{font-size:11px;color:rgba(159,225,203,.7);}
+.card-body{padding:18px 22px;display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.card-col{padding:0 10px;}
+.card-col:first-child{padding-left:0;border-right:1px solid var(--border);padding-right:14px;}
+.card-col:last-child{padding-left:14px;padding-right:0;}
+.card-sec{margin-bottom:13px;}
+.card-sec:last-child{margin-bottom:0;}
+.card-sec-title{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:500;margin-bottom:6px;padding-bottom:3px;border-bottom:1px solid var(--teal-light);}
+.cwarn{display:flex;gap:5px;align-items:flex-start;margin-bottom:3px;font-size:11px;color:var(--ink-mid);line-height:1.4;}
+.cw-dot{width:4px;height:4px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;}
+.c-chip-mini{padding:2px 7px;border-radius:20px;font-size:10px;background:var(--teal-light);color:var(--teal);border:1px solid rgba(29,158,117,.22);display:inline-block;margin:2px 2px 0 0;}
+.c-chip-mini.amber{background:var(--amber-light);color:var(--amber);border-color:rgba(186,117,23,.22);}
+.cp-row{display:flex;gap:7px;align-items:center;margin-bottom:5px;}
+.cp-av{width:26px;height:26px;border-radius:50%;background:var(--teal-light);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;color:var(--teal);flex-shrink:0;}
+.cp-name{font-size:11px;font-weight:500;color:var(--ink);}
+.cp-detail{font-size:10px;color:var(--ink-soft);}
+.creasonsq{font-family:var(--serif);font-size:12px;font-style:italic;color:var(--ink-mid);line-height:1.5;padding-left:7px;border-left:2px solid var(--teal-light);}
+.cstep{display:flex;gap:6px;align-items:flex-start;margin-bottom:4px;font-size:11px;color:var(--ink-mid);line-height:1.4;}
+.csn{width:15px;height:15px;border-radius:50%;background:var(--teal-light);color:var(--teal);font-size:9px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ccon{display:flex;gap:6px;align-items:center;margin-bottom:4px;}
+.ccon-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.ccon-name{font-size:11px;font-weight:500;color:var(--ink);}
+.ccon-num{font-size:10px;color:var(--ink-soft);}
+.card-footer{background:var(--teal-pale);border-top:1px solid var(--border);padding:8px 22px;display:flex;justify-content:space-between;align-items:center;}
+.card-footer-text{font-size:10px;color:var(--ink-soft);font-style:italic;}
+
+/* ── CRISIS MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(26,43,31,.6);z-index:500;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--white);border-radius:var(--r);max-width:560px;width:100%;max-height:90vh;overflow-y:auto;}
+.modal-header{background:var(--red);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;}
+.modal-title{font-family:var(--serif);font-size:20px;font-weight:300;color:#fff;font-style:italic;}
+.modal-close{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:0 4px;opacity:.8;}
+.modal-close:hover{opacity:1;}
+.modal-body{padding:20px 22px;}
+.modal-contact{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border);}
+.modal-contact:last-child{border-bottom:none;}
+.mc-accent{width:4px;border-radius:2px;flex-shrink:0;min-height:34px;}
+.mc-name{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:1px;}
+.mc-num{font-size:14px;color:var(--teal);font-weight:500;margin-bottom:2px;}
+.mc-detail{font-size:11px;color:var(--ink-soft);line-height:1.5;}
+.modal-emergency{margin-top:14px;padding:14px;background:var(--red-light);border-radius:var(--rs);border:1px solid rgba(169,50,38,.2);}
+.me-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);font-weight:500;margin-bottom:2px;}
+.me-num{font-family:var(--serif);font-size:24px;color:var(--red);}
+.me-detail{font-size:12px;color:var(--red);opacity:.8;}
+
+/* ── PRINT ── */
+@media print{
+  .topnav,.hero,.home-body,.modal-overlay,.nav-row,.print-row,.privacy-note,.worker-box,.step:not(#sp-done):not(#sc-done){display:none!important;}
+  .view:not(.active){display:none!important;}
+  body{background:white;}
+  .tool-wrap{padding:0;max-width:100%;}
+  .plan-card,.card-page{border:none;box-shadow:none;}
+  @page{margin:.6in;size:letter;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ TOP NAV ══ -->
+<nav class="topnav">
+  <div class="topnav-brand">My Safety Plan</div>
+  <div class="topnav-tabs">
+    <button class="topnav-tab active" onclick="showView('home',this)">Home</button>
+    <button class="topnav-tab" onclick="showView('full',this)">Full plan</button>
+    <button class="topnav-tab" onclick="showView('card',this)">Quick card</button>
+    <button class="topnav-tab" onclick="showView('crisis-page',this)">Crisis contacts</button>
+  </div>
+  <button class="topnav-crisis" onclick="openModal()">Crisis now</button>
+</nav>
+
+<!-- ══════════ HOME VIEW ══════════ -->
+<div class="view active" id="view-home">
+  <div class="hero">
+    <div class="hero-pill">Indigenous-informed &nbsp;·&nbsp; 2Spirit-inclusive &nbsp;·&nbsp; Toronto</div>
+    <h1>Your safety plan.<br><em>Your words.</em></h1>
+    <p class="hero-sub">Two free tools to build a personal safety plan — with Indigenous and 2Spirit crisis supports built in. Nothing is stored. Everything stays on your device.</p>
+    <div class="hero-badges">
+      <span class="hero-badge">Free</span>
+      <span class="hero-badge">No login</span>
+      <span class="hero-badge">Works offline</span>
+      <span class="hero-badge">Printable</span>
+      <span class="hero-badge">Nothing stored</span>
+    </div>
+    <div class="hero-cta">
+      <button class="btn-hero" onclick="showView('full',document.querySelectorAll('.topnav-tab')[1])">Start my safety plan →</button>
+      <button class="btn-hero-ghost" onclick="showView('card',document.querySelectorAll('.topnav-tab')[2])">Build a quick card</button>
+    </div>
+    <p class="hero-ack">We are on the traditional territory of the Mississaugas of the Credit, the Anishinaabeg, the Haudenosaunee, and the Wendat peoples — Tkaronto.</p>
+  </div>
+
+  <div class="home-body">
+    <div class="home-section-label">Two tools, one purpose</div>
+    <div class="home-section-title">Choose what works for you</div>
+    <div class="home-section-sub">Use the full guided plan with your worker, or fill in the quick card on your own. Both generate something you can print and keep.</div>
+    <div class="tool-cards">
+      <div class="tool-card" onclick="showView('full',document.querySelectorAll('.topnav-tab')[1])">
+        <div class="tool-card-bar" style="background:var(--teal);"></div>
+        <div class="tool-card-body">
+          <div class="tool-card-icon" style="background:var(--teal-light);color:var(--teal);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          </div>
+          <div class="tool-card-title">Full safety plan</div>
+          <div class="tool-card-sub">Guided 7-step form — warning signs, coping strategies, safe people, reasons to stay safe, and crisis steps. Generates a complete plan.</div>
+          <div class="tool-card-tags">
+            <span class="tag" style="background:var(--teal-light);color:var(--teal);">7 steps</span>
+            <span class="tag" style="background:var(--teal-light);color:var(--teal);">With or without a worker</span>
+            <span class="tag" style="background:var(--amber-light);color:var(--amber);">2Spirit-inclusive</span>
+          </div>
+          <div class="tool-card-cta" style="color:var(--teal);">Open full plan →</div>
+        </div>
+      </div>
+      <div class="tool-card" onclick="showView('card',document.querySelectorAll('.topnav-tab')[2])">
+        <div class="tool-card-bar" style="background:var(--amber);"></div>
+        <div class="tool-card-body">
+          <div class="tool-card-icon" style="background:var(--amber-light);color:var(--amber);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div class="tool-card-title">Quick safety card</div>
+          <div class="tool-card-sub">Fill in the form, click build — get a clean one-page card with your safe people, coping strategies, reasons to stay safe, and crisis contacts.</div>
+          <div class="tool-card-tags">
+            <span class="tag" style="background:var(--amber-light);color:var(--amber);">One page</span>
+            <span class="tag" style="background:var(--amber-light);color:var(--amber);">Print-ready</span>
+            <span class="tag" style="background:var(--teal-light);color:var(--teal);">No worker info</span>
+          </div>
+          <div class="tool-card-cta" style="color:var(--amber);">Build my card →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="context-strip">
+      <div class="home-section-label" style="margin-bottom:6px;">Why this tool exists</div>
+      <div class="home-section-title" style="font-size:clamp(18px,3vw,24px);margin-bottom:6px;">Grounded in Indigenous ways of knowing</div>
+      <div class="context-grid">
+        <div class="ctx-item"><div class="ctx-dot"></div><div><div class="ctx-title">Two-Eyed Seeing</div><div class="ctx-sub">Indigenous healing and Western approaches held equally — neither replaces the other.</div></div></div>
+        <div class="ctx-item"><div class="ctx-dot"></div><div><div class="ctx-title">Medicine Wheel</div><div class="ctx-sub">Wellness across mental, emotional, physical, and spiritual dimensions.</div></div></div>
+        <div class="ctx-item"><div class="ctx-dot"></div><div><div class="ctx-title">2Spirit-affirming</div><div class="ctx-sub">2Spirit identity is a strength. Dedicated 2Spirit crisis support listed throughout.</div></div></div>
+        <div class="ctx-item"><div class="ctx-dot"></div><div><div class="ctx-title">Non-police first</div><div class="ctx-sub">TCCS Indigenous mobile crisis — led by 2-Spirited People of the 1st Nations — offered as the first emergency option.</div></div></div>
+        <div class="ctx-item"><div class="ctx-dot"></div><div><div class="ctx-title">Cultural continuity</div><div class="ctx-sub">Connection to culture, Elders, and land are among the strongest protective factors for Indigenous peoples.</div></div></div>
+        <div class="ctx-item"><div class="ctx-dot"></div><div><div class="ctx-title">Nothing stored</div><div class="ctx-sub">Every answer stays on your own device. No accounts, no servers, no tracking.</div></div></div>
+      </div>
+    </div>
+
+    <div class="home-section-label">If you need help right now</div>
+    <div class="home-section-title" style="font-size:clamp(18px,3vw,24px);margin-bottom:6px;">Crisis contacts — Toronto</div>
+    <div class="crisis-grid">
+      <div class="c-card"><div class="c-accent" style="background:#1D9E75;"></div><div><div class="c-name">Anishnawbe Health Toronto</div><div class="c-num">416-891-8606</div><div class="c-detail">24/7 Indigenous crisis. Traditional Healers, Elders. 2Spirit & trans peer support.</div></div></div>
+      <div class="c-card"><div class="c-accent" style="background:#7F77DD;"></div><div><div class="c-name">2-Spirited People of the 1st Nations</div><div class="c-num">416-363-2999</div><div class="c-detail">2Spirit-specific. Peer counsellors. Daily 2pm–2am.</div></div></div>
+      <div class="c-card"><div class="c-accent" style="background:#1D9E75;"></div><div><div class="c-name">TCCS Indigenous Mobile (non-police)</div><div class="c-num">Call or text 211</div><div class="c-detail">Mobile team led by 2-Spirited People of the 1st Nations. Ask for Indigenous stream. 24/7.</div></div></div>
+      <div class="c-card"><div class="c-accent" style="background:#BA7517;"></div><div><div class="c-name">Hope for Wellness Helpline</div><div class="c-num">1-855-242-3310</div><div class="c-detail">24/7 for all Indigenous people across Canada. Cree, Ojibway, Inuktitut, EN, FR.</div></div></div>
+      <div class="c-card"><div class="c-accent" style="background:#E24B4A;"></div><div><div class="c-name">9-8-8 Suicide Crisis Helpline</div><div class="c-num">Call or text 9-8-8</div><div class="c-detail">National 24/7 suicide crisis line.</div></div></div>
+      <div class="c-card"><div class="c-accent" style="background:#378ADD;"></div><div><div class="c-name">Kids Help Phone</div><div class="c-num">1-800-668-6868</div><div class="c-detail">For young people. Text HELLO to 686868. 24/7.</div></div></div>
+    </div>
+    <div class="emergency-bar"><div><div class="e-label">Medical emergency</div><div class="e-num">911</div><div class="e-detail">CAMH Emergency: 416-535-8501 ext 2000</div></div></div>
+  </div>
+</div>
+
+<!-- ══════════ FULL PLAN VIEW ══════════ -->
+<div class="view" id="view-full">
+  <div class="tool-wrap">
+    <div class="prog-track"><div class="prog-fill" id="fp-prog" style="width:12%"></div></div>
+    <div class="prog-label"><span id="fp-step-label">Step 1 of 7</span><span id="fp-step-name">About you</span></div>
+
+    <!-- Step 1 -->
+    <div class="step active" id="fp1">
+      <div class="worker-box">
+        <div class="worker-box-title">For the frontline worker</div>
+        <div class="worker-box-sub">Fill in your details below — they'll appear on the finished plan. Leave blank if the person is filling this in independently.</div>
+        <div class="worker-grid">
+          <div><label class="fl" style="font-size:10px;">Organization</label><input type="text" id="fp-org" placeholder="e.g. Anishnawbe Health Toronto"></div>
+          <div><label class="fl" style="font-size:10px;">Worker name & role</label><input type="text" id="fp-worker" placeholder="e.g. Sarah, Community Counsellor"></div>
+          <div><label class="fl" style="font-size:10px;">Worker phone</label><input type="text" id="fp-wphone" placeholder="e.g. 416-555-0100"></div>
+          <div><label class="fl" style="font-size:10px;">Next appointment</label><input type="text" id="fp-appt" placeholder="e.g. Tuesday March 18, 2pm"></div>
+        </div>
+      </div>
+      <div class="step-eye">Step 1 of 7</div>
+      <div class="step-title">About you</div>
+      <div class="step-sub">This safety plan is yours — fill it in using words that feel right to you.</div>
+      <div class="field"><label class="fl">Your name</label><input type="text" id="fp-name" placeholder="What you like to be called"></div>
+      <div class="pair">
+        <div class="field"><label class="fl">Today's date</label><input type="text" id="fp-date" placeholder="e.g. March 15, 2026"></div>
+        <div class="field"><label class="fl">This plan is for</label>
+          <select id="fp-type"><option value="staying safe">Staying safe</option><option value="mental health">Mental health</option><option value="self-harm urges">Self-harm urges</option><option value="suicidal thoughts">Suicidal thoughts</option><option value="crisis situations">Crisis situations</option></select>
+        </div>
+      </div>
+      <div class="callout">You are the expert on yourself. There are no right or wrong answers — fill in only what feels true for you.</div>
+      <div class="nav-row"><button class="btn-next" onclick="fpGo(2)">Next →</button></div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step" id="fp2">
+      <div class="step-eye">Step 2 of 7</div>
+      <div class="step-title">My warning signs</div>
+      <div class="step-sub">What do you notice in yourself when things start getting harder?</div>
+      <div class="field"><label class="fl">Things I notice in my thoughts</label><textarea id="fp-wt" placeholder="e.g. I start thinking nothing will get better, or I replay painful memories..."></textarea></div>
+      <div class="field"><label class="fl">Things I notice in my feelings</label><textarea id="fp-wf" placeholder="e.g. I feel numb, really angry, or like I want to disappear..."></textarea></div>
+      <div class="field"><label class="fl">Things I notice in my body or how I act</label><textarea id="fp-wb" placeholder="e.g. I stop eating, pull away from people, can't sleep..."></textarea></div>
+      <div class="nav-row"><button class="btn-back" onclick="fpGo(1)">← Back</button><button class="btn-next" onclick="fpGo(3)">Next →</button></div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step" id="fp3">
+      <div class="step-eye">Step 3 of 7</div>
+      <div class="step-title">What helps me</div>
+      <div class="step-sub">Choose anything that helps you feel calmer or safer.</div>
+      <div class="field"><label class="fl">Things that help me on my own — tap to select</label>
+        <div class="chips" id="fp-cope">
+          <button class="chip" onclick="tc(this,'on')">Going outside</button><button class="chip" onclick="tc(this,'on')">Being near water</button><button class="chip" onclick="tc(this,'on')">Smudging</button><button class="chip" onclick="tc(this,'on')">Deep breathing</button><button class="chip" onclick="tc(this,'on')">Music</button><button class="chip" onclick="tc(this,'on')">Moving my body</button><button class="chip" onclick="tc(this,'on')">Writing or drawing</button><button class="chip" onclick="tc(this,'on')">Beadwork or crafts</button><button class="chip" onclick="tc(this,'on')">Grounding (5-4-3-2-1)</button><button class="chip" onclick="tc(this,'on')">Watching something calming</button><button class="chip" onclick="tc(this,'on')">Cooking or baking</button><button class="chip" onclick="tc(this,'on')">Time with animals</button><button class="chip" onclick="tc(this,'on')">Prayer</button><button class="chip" onclick="tc(this,'on')">Drumming</button>
+        </div>
+      </div>
+      <div class="field"><label class="fl">Anything else that helps me</label><input type="text" id="fp-cope-other" placeholder="Add your own..."></div>
+      <div class="field" style="margin-top:8px;"><label class="fl">Cultural & spiritual things that keep me grounded <span style="color:var(--amber);">(amber)</span></label>
+        <div class="chips" id="fp-cult">
+          <button class="chip" onclick="tc(this,'on-amber')">Ceremony</button><button class="chip" onclick="tc(this,'on-amber')">Sweat lodge</button><button class="chip" onclick="tc(this,'on-amber')">Talking circle</button><button class="chip" onclick="tc(this,'on-amber')">Traditional medicines</button><button class="chip" onclick="tc(this,'on-amber')">Visiting my Elder</button><button class="chip" onclick="tc(this,'on-amber')">Being on the land</button><button class="chip" onclick="tc(this,'on-amber')">Community gathering</button><button class="chip" onclick="tc(this,'on-amber')">Language practice</button><button class="chip" onclick="tc(this,'on-amber')">Singing</button><button class="chip" onclick="tc(this,'on-amber')">Harvesting</button>
+        </div>
+      </div>
+      <div class="field"><label class="fl">Other cultural or spiritual supports</label><input type="text" id="fp-cult-other" placeholder="Add your own..."></div>
+      <div class="nav-row"><button class="btn-back" onclick="fpGo(2)">← Back</button><button class="btn-next" onclick="fpGo(4)">Next →</button></div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step" id="fp4">
+      <div class="step-eye">Step 4 of 7</div>
+      <div class="step-title">My safe people</div>
+      <div class="step-sub">Who can you reach out to when things get hard?</div>
+      <div id="fp-people"></div>
+      <button class="add-btn" onclick="addPerson('fp')">+ Add another person</button>
+      <div class="callout">It's okay if you only have one or two people right now.</div>
+      <div class="nav-row"><button class="btn-back" onclick="fpGo(3)">← Back</button><button class="btn-next" onclick="fpGo(5)">Next →</button></div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step" id="fp5">
+      <div class="step-eye">Step 5 of 7</div>
+      <div class="step-title">My reasons to stay safe</div>
+      <div class="step-sub">What matters most to you? What keeps you here?</div>
+      <div class="field"><label class="fl">The people and things that matter most to me</label><textarea id="fp-reasons" rows="3" placeholder="e.g. My kids, my kokum, the land in spring, my community, my art..."></textarea></div>
+      <div class="field"><label class="fl">Something I'm looking forward to</label><input type="text" id="fp-forward" placeholder="e.g. Summer powwow, finishing my beadwork, my cousin's baby..."></div>
+      <div class="nav-row"><button class="btn-back" onclick="fpGo(4)">← Back</button><button class="btn-next" onclick="fpGo(6)">Next →</button></div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="step" id="fp6">
+      <div class="step-eye">Step 6 of 7</div>
+      <div class="step-title">Crisis contacts</div>
+      <div class="step-sub">If things get really serious and you need to talk to someone.</div>
+      <div class="field"><label class="fl">My first-choice crisis line</label>
+        <select id="fp-c1"><option value="aht">Anishnawbe Health Toronto 24/7 — 416-891-8606</option><option value="2spirits">2-Spirited People of the 1st Nations — 416-363-2999</option><option value="hope">Hope for Wellness Helpline — 1-855-242-3310</option><option value="988">9-8-8 Suicide Crisis Helpline — 9-8-8</option><option value="kids">Kids Help Phone — 1-800-668-6868</option><option value="distress">Distress Centres GTA — 416-408-4357</option></select>
+      </div>
+      <div class="field"><label class="fl">If I need mobile or emergency help</label>
+        <select id="fp-c2"><option value="tccs">TCCS Indigenous Mobile (non-police) — 211</option><option value="911">Emergency — 911</option><option value="camh">CAMH Emergency — 416-535-8501 ext 2000</option><option value="both">TCCS via 211 first, then 911</option></select>
+      </div>
+      <div class="callout">The TCCS Indigenous mobile team is led by 2-Spirited People of the 1st Nations. They are <strong>not police</strong>. They can come to you.</div>
+      <div class="nav-row"><button class="btn-back" onclick="fpGo(5)">← Back</button><button class="btn-next" onclick="fpGo(7)">Next →</button></div>
+    </div>
+
+    <!-- Step 7 -->
+    <div class="step" id="fp7">
+      <div class="step-eye">Step 7 of 7</div>
+      <div class="step-title">My steps in a crisis</div>
+      <div class="step-sub">Write your personal steps in order — what you'll do first when things feel overwhelming.</div>
+      <div class="step-row"><div class="step-badge">1</div><div style="flex:1"><label class="fl">Something I'll try on my own first</label><input type="text" id="fp-cs1" placeholder="e.g. I will smudge and go sit outside for 10 minutes"></div></div>
+      <div class="step-row"><div class="step-badge">2</div><div style="flex:1"><label class="fl">Someone I will contact</label><input type="text" id="fp-cs2" placeholder="e.g. I will text my cousin Leah or call my Elder Margaret"></div></div>
+      <div class="step-row"><div class="step-badge">3</div><div style="flex:1"><label class="fl">If steps 1 and 2 haven't helped</label><input type="text" id="fp-cs3" placeholder="e.g. I will call my chosen crisis line"></div></div>
+      <div class="step-row"><div class="step-badge">4</div><div style="flex:1"><label class="fl">If I feel like I might hurt myself</label><input type="text" id="fp-cs4" placeholder="e.g. I will call 211 for the mobile team or go to the hospital"></div></div>
+      <div class="field" style="margin-top:4px;"><label class="fl">One thing I'll do to make my space safer (optional)</label><input type="text" id="fp-safe" placeholder="e.g. Ask my sister to hold onto my medications for a while"></div>
+      <div class="nav-row"><button class="btn-back" onclick="fpGo(6)">← Back</button><button class="btn-gen" onclick="buildFull()">Create my plan →</button></div>
+    </div>
+
+    <!-- Done -->
+    <div class="step" id="fp-done">
+      <div style="font-family:var(--serif);font-size:22px;font-weight:300;font-style:italic;color:var(--ink);margin-bottom:4px;">Your safety plan is ready</div>
+      <div style="font-size:13px;color:var(--ink-soft);margin-bottom:14px;">Screenshot it, print it, or save it as a PDF.</div>
+      <div class="print-row">
+        <button class="btn-print" onclick="window.print()">Print / save as PDF</button>
+        <button class="btn-sec-sm" onclick="fpGo(1);fpReset()">Start over</button>
+      </div>
+      <div id="fp-output"></div>
+      <div class="privacy-note">Your information was never sent anywhere and is not stored. Print → Save as PDF to keep it.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ QUICK CARD VIEW ══════════ -->
+<div class="view" id="view-card">
+  <div class="tool-wrap">
+    <div style="font-family:var(--serif);font-size:26px;font-weight:300;font-style:italic;color:var(--ink);margin-bottom:4px;">My quick safety card</div>
+    <div style="font-size:14px;color:var(--ink-soft);margin-bottom:24px;line-height:1.7;">Fill in the form below and tap "Build my card" — your answers become a clean one-page card to print or screenshot. No worker information included.</div>
+
+    <div class="field"><label class="fl">Your name</label><input type="text" id="sc-name" placeholder="What you like to be called"></div>
+    <div class="pair">
+      <div class="field"><label class="fl">Today's date</label><input type="text" id="sc-date" placeholder="e.g. March 15, 2026"></div>
+      <div class="field"><label class="fl">This plan is for</label>
+        <select id="sc-type"><option value="staying safe">Staying safe</option><option value="mental health">Mental health</option><option value="self-harm urges">Self-harm urges</option><option value="suicidal thoughts">Suicidal thoughts</option><option value="crisis situations">Crisis situations</option></select>
+      </div>
+    </div>
+
+    <div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin:18px 0 8px;font-weight:500;padding-top:16px;border-top:1px solid var(--border);">My warning signs</div>
+    <div class="field"><label class="fl">Thoughts</label><textarea id="sc-wt" placeholder="e.g. I start thinking nothing will get better..."></textarea></div>
+    <div class="field"><label class="fl">Feelings</label><textarea id="sc-wf" placeholder="e.g. I feel numb, angry, or like I want to disappear..."></textarea></div>
+    <div class="field"><label class="fl">Body & actions</label><textarea id="sc-wb" placeholder="e.g. I stop eating, pull away, can't sleep..."></textarea></div>
+
+    <div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin:18px 0 8px;font-weight:500;padding-top:16px;border-top:1px solid var(--border);">What helps me</div>
+    <div class="field"><label class="fl">Things that help me on my own</label>
+      <div class="chips" id="sc-cope">
+        <button class="chip" onclick="tc(this,'on')">Going outside</button><button class="chip" onclick="tc(this,'on')">Being near water</button><button class="chip" onclick="tc(this,'on')">Smudging</button><button class="chip" onclick="tc(this,'on')">Deep breathing</button><button class="chip" onclick="tc(this,'on')">Music</button><button class="chip" onclick="tc(this,'on')">Moving my body</button><button class="chip" onclick="tc(this,'on')">Writing or drawing</button><button class="chip" onclick="tc(this,'on')">Beadwork or crafts</button><button class="chip" onclick="tc(this,'on')">Grounding (5-4-3-2-1)</button><button class="chip" onclick="tc(this,'on')">Prayer</button><button class="chip" onclick="tc(this,'on')">Drumming</button><button class="chip" onclick="tc(this,'on')">Time with animals</button>
+      </div>
+    </div>
+    <div class="field"><label class="fl">Anything else</label><input type="text" id="sc-cope-other" placeholder="Add your own..."></div>
+    <div class="field"><label class="fl">Cultural & spiritual supports <span style="color:var(--amber);">(amber)</span></label>
+      <div class="chips" id="sc-cult">
+        <button class="chip" onclick="tc(this,'on-amber')">Ceremony</button><button class="chip" onclick="tc(this,'on-amber')">Sweat lodge</button><button class="chip" onclick="tc(this,'on-amber')">Talking circle</button><button class="chip" onclick="tc(this,'on-amber')">Traditional medicines</button><button class="chip" onclick="tc(this,'on-amber')">Visiting my Elder</button><button class="chip" onclick="tc(this,'on-amber')">Being on the land</button><button class="chip" onclick="tc(this,'on-amber')">Community gathering</button><button class="chip" onclick="tc(this,'on-amber')">Language practice</button>
+      </div>
+    </div>
+    <div class="field"><label class="fl">Other cultural supports</label><input type="text" id="sc-cult-other" placeholder="Add your own..."></div>
+
+    <div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin:18px 0 8px;font-weight:500;padding-top:16px;border-top:1px solid var(--border);">My safe people</div>
+    <div id="sc-people"></div>
+    <button class="add-btn" onclick="addPerson('sc')">+ Add another person</button>
+
+    <div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin:18px 0 8px;font-weight:500;padding-top:16px;border-top:1px solid var(--border);">My reasons to stay safe</div>
+    <div class="field"><label class="fl">The people and things that matter most to me</label><textarea id="sc-reasons" rows="3" placeholder="e.g. My kids, my kokum, the land in spring, my community..."></textarea></div>
+    <div class="field"><label class="fl">Something I'm looking forward to</label><input type="text" id="sc-forward" placeholder="e.g. Summer powwow, finishing my beadwork..."></div>
+
+    <div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin:18px 0 8px;font-weight:500;padding-top:16px;border-top:1px solid var(--border);">Crisis contacts</div>
+    <div class="pair">
+      <div class="field"><label class="fl">My first-choice crisis line</label>
+        <select id="sc-c1"><option value="aht">Anishnawbe Health Toronto — 416-891-8606</option><option value="2spirits">2-Spirited People — 416-363-2999</option><option value="hope">Hope for Wellness — 1-855-242-3310</option><option value="988">9-8-8 Helpline</option><option value="kids">Kids Help Phone</option></select>
+      </div>
+      <div class="field"><label class="fl">Mobile or emergency option</label>
+        <select id="sc-c2"><option value="tccs">TCCS Indigenous Mobile — 211</option><option value="911">Emergency — 911</option><option value="camh">CAMH — 416-535-8501 ext 2000</option></select>
+      </div>
+    </div>
+    <div class="callout">TCCS is <strong>not police</strong> — they can come to you. Call or text 211 and ask for the Indigenous stream.</div>
+
+    <div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin:18px 0 8px;font-weight:500;padding-top:16px;border-top:1px solid var(--border);">My steps in a crisis</div>
+    <div class="step-row"><div class="step-badge">1</div><div style="flex:1"><input type="text" id="sc-cs1" placeholder="Something I'll try on my own first..."></div></div>
+    <div class="step-row"><div class="step-badge">2</div><div style="flex:1"><input type="text" id="sc-cs2" placeholder="Someone I will contact..."></div></div>
+    <div class="step-row"><div class="step-badge">3</div><div style="flex:1"><input type="text" id="sc-cs3" placeholder="If steps 1 and 2 haven't helped..."></div></div>
+    <div class="step-row"><div class="step-badge">4</div><div style="flex:1"><input type="text" id="sc-cs4" placeholder="If I feel like I might hurt myself..."></div></div>
+    <div class="field" style="margin-top:4px;"><label class="fl">To make my space safer (optional)</label><input type="text" id="sc-safe" placeholder="e.g. Ask my sister to hold onto my medications..."></div>
+
+    <div style="display:flex;gap:8px;margin-top:22px;padding-top:18px;border-top:1px solid var(--border);">
+      <button class="btn-gen" onclick="buildCard()">Build my card →</button>
+      <button class="btn-sec-sm" onclick="scReset()">Clear</button>
+    </div>
+
+    <div id="sc-done" style="display:none;margin-top:28px;">
+      <div style="font-family:var(--serif);font-size:20px;font-weight:300;font-style:italic;color:var(--ink);margin-bottom:10px;">Your card is ready</div>
+      <div class="print-row">
+        <button class="btn-print" onclick="window.print()">Print / save as PDF</button>
+        <button class="btn-sec-sm" onclick="scReset()">Edit & rebuild</button>
+      </div>
+      <div id="sc-output"></div>
+      <div class="privacy-note" style="margin-top:10px;">Nothing stored or sent. Print → Save as PDF to keep it.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ CRISIS PAGE VIEW ══════════ -->
+<div class="view" id="view-crisis-page">
+  <div class="home-body">
+    <div class="home-section-label">If you need help right now</div>
+    <div class="home-section-title">Crisis contacts — Toronto</div>
+    <div class="home-section-sub">You don't have to fill in a form to use these. Call or text anytime.</div>
+    <div class="crisis-grid">
+      <div class="c-card"><div class="c-accent" style="background:#1D9E75;"></div><div><div class="c-name">Anishnawbe Health Toronto</div><div class="c-num">416-891-8606</div><div class="c-detail">24/7. Traditional Healers, Elders, Medicine People. 2Spirit & trans peer support. 425 Cherry St.</div></div></div>
+      <div class="c-card"><div class="c-accent" style="background:#7F77DD;"></div><div><div class="c-name">2-Spirited People of the 1st Nations</div><div class="c-num">416-363-2999</div><div class="c-detail">2Spirit-specific crisis support. Peer counsellors with lived 2Spirit experience. Daily 2pm–2am.</div></div></div>
+      <div class="c-card"><div class="c-accent" style="background:#1D9E75;"></div><div><div class="c-name">TCCS Indigenous Mobile (non-police)</div><div class="c-num">Call or text 211</div><div class="c-detail">Mobile crisis team led by 2-Spirited People of the 1st Nations. City-wide, 24/7. Ask for Indigenous stream.</div></div></div>
+      <div class="c-card"><div class="c-accent" style="background:#BA7517;"></div><div><div class="c-name">Hope for Wellness Helpline</div><div class="c-num">1-855-242-3310</div><div class="c-detail">24/7 for all Indigenous people. Cree, Ojibway, Inuktitut, English, French. hopeforwellness.ca</div></div></div>
+      <div class="c-card"><div class="c-accent" style="background:#E24B4A;"></div><div><div class="c-name">9-8-8 Suicide Crisis Helpline</div><div class="c-num">Call or text 9-8-8</div><div class="c-detail">National 24/7 suicide crisis line.</div></div></div>
+      <div class="c-card"><div class="c-accent" style="background:#378ADD;"></div><div><div class="c-name">Kids Help Phone</div><div class="c-num">1-800-668-6868</div><div class="c-detail">For young people. Text HELLO to 686868. 24/7, confidential.</div></div></div>
+      <div class="c-card"><div class="c-accent" style="background:#1D9E75;"></div><div><div class="c-name">Distress Centres of Greater Toronto</div><div class="c-num">416-408-4357</div><div class="c-detail">24/7 crisis and emotional support line.</div></div></div>
+      <div class="c-card"><div class="c-accent" style="background:#5B2C8F;"></div><div><div class="c-name">Native Women's Resource Centre</div><div class="c-num">416-963-9963</div><div class="c-detail">Support for Indigenous women. 191 Gerrard St E. Mon–Fri 10am–5pm (Wed to 9pm).</div></div></div>
+    </div>
+    <div class="emergency-bar" style="margin-top:14px;"><div><div class="e-label">Medical emergency</div><div class="e-num">911</div><div class="e-detail">CAMH Emergency: 416-535-8501 ext 2000 &nbsp;·&nbsp; Nearest emergency department</div></div></div>
+  </div>
+</div>
+
+<!-- ══════════ CRISIS MODAL ══════════ -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Crisis contacts</div>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-contact"><div class="mc-accent" style="background:#1D9E75;"></div><div><div class="mc-name">Anishnawbe Health Toronto</div><div class="mc-num">416-891-8606</div><div class="mc-detail">24/7 · Traditional Healers, Elders · 2Spirit peer support</div></div></div>
+      <div class="modal-contact"><div class="mc-accent" style="background:#7F77DD;"></div><div><div class="mc-name">2-Spirited People of the 1st Nations</div><div class="mc-num">416-363-2999</div><div class="mc-detail">2Spirit-specific · Daily 2pm–2am</div></div></div>
+      <div class="modal-contact"><div class="mc-accent" style="background:#1D9E75;"></div><div><div class="mc-name">TCCS Indigenous Mobile (non-police)</div><div class="mc-num">Call or text 211</div><div class="mc-detail">Ask for Indigenous stream · 24/7 city-wide</div></div></div>
+      <div class="modal-contact"><div class="mc-accent" style="background:#BA7517;"></div><div><div class="mc-name">Hope for Wellness Helpline</div><div class="mc-num">1-855-242-3310</div><div class="mc-detail">24/7 · Cree, Ojibway, Inuktitut, EN, FR</div></div></div>
+      <div class="modal-contact"><div class="mc-accent" style="background:#E24B4A;"></div><div><div class="mc-name">9-8-8 Suicide Crisis Helpline</div><div class="mc-num">9-8-8</div><div class="mc-detail">Call or text · 24/7</div></div></div>
+      <div class="modal-contact"><div class="mc-accent" style="background:#378ADD;"></div><div><div class="mc-name">Kids Help Phone</div><div class="mc-num">1-800-668-6868</div><div class="mc-detail">Text HELLO to 686868</div></div></div>
+      <div class="modal-emergency"><div class="me-label">Medical emergency</div><div class="me-num">911</div><div class="me-detail">CAMH Emergency: 416-535-8501 ext 2000</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── NAV ── */
+function showView(id, btn) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById('view-' + id).classList.add('active');
+  document.querySelectorAll('.topnav-tab').forEach(t => t.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function openModal() { document.getElementById('modal').classList.add('open'); }
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+
+/* ── CHIPS ── */
+function tc(btn, cls) {
+  const other = cls === 'on' ? 'on-amber' : 'on';
+  btn.classList.contains(cls) ? btn.classList.remove(cls) : (btn.classList.remove(other), btn.classList.add(cls));
+}
+
+/* ── PERSONS ── */
+let fpPC = 0, scPC = 0;
+function addPerson(prefix) {
+  const counter = prefix === 'fp' ? ++fpPC : ++scPC;
+  const id = prefix + '-per' + counter;
+  const listId = prefix + '-people';
+  const d = document.createElement('div');
+  d.className = 'person-entry'; d.id = id;
+  d.innerHTML = `<div class="pe-top"><div class="pe-num">${counter}</div><span class="pe-label">Safe person ${counter}</span><button class="rm-btn" onclick="document.getElementById('${id}').remove()">×</button></div>
+    <div class="pe-fields">
+      <div><label class="fl" style="font-size:10px;">Name</label><input type="text" id="${id}-n" placeholder="Name"></div>
+      <div><label class="fl" style="font-size:10px;">Relationship</label><input type="text" id="${id}-r" placeholder="e.g. cousin, Elder"></div>
+      <div><label class="fl" style="font-size:10px;">Phone / contact</label><input type="text" id="${id}-p" placeholder="Phone number"></div>
+    </div>`;
+  document.getElementById(listId).appendChild(d);
+}
+
+function getPeople(prefix) {
+  return [...document.querySelectorAll(`[id^="${prefix}-per"]`)].filter(el => el.classList.contains('person-entry')).map(el => {
+    const id = el.id;
+    return { name: gv(id + '-n'), rel: gv(id + '-r'), phone: gv(id + '-p') };
+  }).filter(p => p.name);
+}
+
+function gv(id) { return (document.getElementById(id) || {}).value || ''; }
+function initials(n) { if (!n) return '?'; return n.trim().split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2); }
+
+const crisisMap = {
+  aht: { name: 'Anishnawbe Health Toronto', num: '416-891-8606 (24/7)', color: '#1D9E75' },
+  '2spirits': { name: '2-Spirited People of the 1st Nations', num: '416-363-2999 (2pm–2am)', color: '#7F77DD' },
+  hope: { name: 'Hope for Wellness Helpline', num: '1-855-242-3310 (24/7)', color: '#BA7517' },
+  '988': { name: '9-8-8 Suicide Crisis Helpline', num: 'Call or text 9-8-8', color: '#A93226' },
+  kids: { name: 'Kids Help Phone', num: '1-800-668-6868', color: '#D85A30' },
+  distress: { name: 'Distress Centres GTA', num: '416-408-4357', color: '#378ADD' },
+};
+const emergencyMap = {
+  tccs: { name: 'TCCS Indigenous Mobile (non-police)', num: 'Call or text 211 → Indigenous stream', color: '#0F6E56' },
+  '911': { name: 'Emergency services', num: '911', color: '#A93226' },
+  camh: { name: 'CAMH Emergency', num: '416-535-8501 ext 2000', color: '#D85A30' },
+  both: { name: 'TCCS via 211 first, then 911', num: '211 → 911', color: '#0F6E56' },
+};
+
+/* ── FULL PLAN ── */
+let fpCur = 1;
+const fpNames = ['', 'About you', 'Warning signs', 'What helps', 'Safe people', 'Reasons', 'Crisis contacts', 'My steps'];
+function fpGo(n) {
+  document.getElementById('fp' + (fpCur === 8 ? '-done' : fpCur)).classList.remove('active');
+  fpCur = n;
+  document.getElementById('fp' + (n === 8 ? '-done' : n)).classList.add('active');
+  const pct = Math.round((n / 8) * 100);
+  document.getElementById('fp-prog').style.width = pct + '%';
+  document.getElementById('fp-step-label').textContent = n < 8 ? 'Step ' + n + ' of 7' : 'Complete';
+  document.getElementById('fp-step-name').textContent = fpNames[n] || 'Your plan';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function buildFull() {
+  const name = gv('fp-name') || 'My';
+  const date = gv('fp-date') || new Date().toLocaleDateString('en-CA');
+  const type = gv('fp-type');
+  const org = gv('fp-org'), worker = gv('fp-worker'), wphone = gv('fp-wphone'), appt = gv('fp-appt');
+  const wT = gv('fp-wt'), wF = gv('fp-wf'), wB = gv('fp-wb');
+  const warnings = [{l:'Thoughts',t:wT},{l:'Feelings',t:wF},{l:'Body & actions',t:wB}].filter(w=>w.t);
+  const copes = [...document.querySelectorAll('#fp-cope .chip.on')].map(b=>b.textContent);
+  const copeOth = gv('fp-cope-other'); if(copeOth) copes.push(copeOth);
+  const culturals = [...document.querySelectorAll('#fp-cult .chip.on-amber')].map(b=>b.textContent);
+  const cultOth = gv('fp-cult-other'); if(cultOth) culturals.push(cultOth);
+  const people = getPeople('fp');
+  const reasons = gv('fp-reasons'), forward = gv('fp-forward');
+  const c1 = crisisMap[gv('fp-c1')] || crisisMap.aht;
+  const c2 = emergencyMap[gv('fp-c2')] || emergencyMap.tccs;
+  const steps = [gv('fp-cs1'),gv('fp-cs2'),gv('fp-cs3'),gv('fp-cs4')].filter(Boolean).map((t,i)=>({n:i+1,t}));
+  const safe = gv('fp-safe');
+
+  let h = `<div class="plan-card"><div class="plan-top"><div><div class="plan-top-name">${name}'s safety plan</div><div class="plan-top-meta">${type.charAt(0).toUpperCase()+type.slice(1)}${org?' · '+org:''}</div></div><div class="plan-top-date">${date}</div></div><div class="plan-body">`;
+
+  if(warnings.length){h+=`<div class="plan-sec"><div class="plan-sec-title">My warning signs</div>`;warnings.forEach(w=>{h+=`<div class="warn-row"><div class="w-dot"></div><span><strong>${w.l}:</strong> ${w.t}</span></div>`;});h+=`</div>`;}
+  if(copes.length||culturals.length){h+=`<div class="plan-sec"><div class="plan-sec-title">What helps me</div><div class="chips-mini">`;copes.forEach(c=>{h+=`<span class="chip-mini">${c}</span>`;});culturals.forEach(c=>{h+=`<span class="chip-mini amber">${c}</span>`;});h+=`</div></div>`;}
+  if(people.length){h+=`<div class="plan-sec"><div class="plan-sec-title">My safe people</div><div class="safe-people">`;people.forEach(p=>{h+=`<div class="safe-person"><div class="safe-av">${initials(p.name)}</div><div><div class="safe-name">${p.name}${p.rel?' — '+p.rel:''}</div>${p.phone?`<div class="safe-detail">${p.phone}</div>`:''}</div></div>`;});h+=`</div></div>`;}
+  if(reasons||forward){h+=`<div class="plan-sec"><div class="plan-sec-title">My reasons to stay safe</div>`;if(reasons)h+=`<div class="reasons-q">"${reasons}"</div>`;if(forward)h+=`<div style="font-size:12px;color:var(--ink-soft);margin-top:6px;">Looking forward to: ${forward}</div>`;h+=`</div>`;}
+  if(steps.length){h+=`<div class="plan-sec"><div class="plan-sec-title">My steps when things get hard</div><div class="steps-list">`;steps.forEach(s=>{h+=`<div class="step-item"><div class="step-n">${s.n}</div><span>${s.t}</span></div>`;});if(safe)h+=`<div style="margin-top:5px;font-size:12px;color:var(--ink-soft);padding-left:6px;border-left:2px solid var(--border-mid);">Safer space: ${safe}</div>`;h+=`</div></div>`;}
+  h+=`<div class="plan-sec"><div class="plan-sec-title">Crisis contacts</div><div class="contacts-list">`;
+  h+=`<div class="con-row"><div class="con-dot" style="background:${c1.color}"></div><div><div class="con-name">${c1.name}</div><div class="con-num">${c1.num}</div></div></div>`;
+  h+=`<div class="con-row"><div class="con-dot" style="background:${c2.color}"></div><div><div class="con-name">${c2.name}</div><div class="con-num">${c2.num}</div></div></div>`;
+  h+=`<div class="con-row"><div class="con-dot" style="background:#BA7517"></div><div><div class="con-name">Hope for Wellness Helpline</div><div class="con-num">1-855-242-3310 (24/7, Indigenous-specific)</div></div></div>`;
+  if(worker||wphone)h+=`<div class="con-row"><div class="con-dot" style="background:#378ADD"></div><div><div class="con-name">My worker${worker?': '+worker:''}${org?' ('+org+')':''}</div><div class="con-num">${wphone||''}</div></div></div>`;
+  h+=`</div></div>`;
+  if(appt||worker){h+=`<div class="plan-sec" style="background:var(--teal-pale);border-radius:var(--rs);padding:12px 14px;">`;h+=`<div class="plan-sec-title">My support worker</div>`;if(worker)h+=`<div style="font-size:13px;color:var(--ink-mid);margin-bottom:3px;">${worker}${org?' — '+org:''}</div>`;if(wphone)h+=`<div style="font-size:13px;color:var(--ink-mid);margin-bottom:3px;">${wphone}</div>`;if(appt)h+=`<div style="font-size:13px;color:var(--ink-mid);">Next appointment: <strong>${appt}</strong></div>`;h+=`</div>`;}
+  h+=`</div><div class="plan-footer-strip"><div class="plan-footer-text">This plan belongs to ${name}. Keep it somewhere you can find it quickly.</div><div style="font-size:11px;color:var(--ink-pale);">${date}</div></div></div>`;
+
+  document.getElementById('fp-output').innerHTML = h;
+  fpGo(8);
+}
+
+function fpReset() {
+  document.querySelectorAll('#view-full input[type=text], #view-full textarea').forEach(el => el.value = '');
+  document.querySelectorAll('#view-full select').forEach(el => el.selectedIndex = 0);
+  document.querySelectorAll('#view-full .chip').forEach(b => b.classList.remove('on','on-amber'));
+  document.getElementById('fp-people').innerHTML = '';
+  fpPC = 0; addPerson('fp');
+  document.getElementById('fp-prog').style.width = '12%';
+  document.getElementById('fp-step-label').textContent = 'Step 1 of 7';
+  document.getElementById('fp-step-name').textContent = 'About you';
+  fpCur = 1;
+}
+
+/* ── QUICK CARD ── */
+function buildCard() {
+  const name = gv('sc-name') || 'My';
+  const date = gv('sc-date') || new Date().toLocaleDateString('en-CA');
+  const type = gv('sc-type');
+  const wT = gv('sc-wt'), wF = gv('sc-wf'), wB = gv('sc-wb');
+  const warnings = [{l:'Thoughts',t:wT},{l:'Feelings',t:wF},{l:'Body',t:wB}].filter(w=>w.t);
+  const copes = [...document.querySelectorAll('#sc-cope .chip.on')].map(b=>b.textContent);
+  const copeOth = gv('sc-cope-other'); if(copeOth) copes.push(copeOth);
+  const culturals = [...document.querySelectorAll('#sc-cult .chip.on-amber')].map(b=>b.textContent);
+  const cultOth = gv('sc-cult-other'); if(cultOth) culturals.push(cultOth);
+  const people = getPeople('sc');
+  const reasons = gv('sc-reasons'), forward = gv('sc-forward');
+  const c1 = crisisMap[gv('sc-c1')] || crisisMap.aht;
+  const c2 = emergencyMap[gv('sc-c2')] || emergencyMap.tccs;
+  const steps = [gv('sc-cs1'),gv('sc-cs2'),gv('sc-cs3'),gv('sc-cs4')].filter(Boolean).map((t,i)=>({n:i+1,t}));
+  const safe = gv('sc-safe');
+
+  let left = '', right = '';
+  if(warnings.length){left+=`<div class="card-sec"><div class="card-sec-title">Warning signs</div>`;warnings.forEach(w=>{left+=`<div class="cwarn"><div class="cw-dot"></div><span><strong>${w.l}:</strong> ${w.t}</span></div>`;});left+=`</div>`;}
+  if(copes.length||culturals.length){left+=`<div class="card-sec"><div class="card-sec-title">What helps me</div><div>`;copes.forEach(c=>{left+=`<span class="c-chip-mini">${c}</span>`;});culturals.forEach(c=>{left+=`<span class="c-chip-mini amber">${c}</span>`;});left+=`</div></div>`;}
+  if(people.length){left+=`<div class="card-sec"><div class="card-sec-title">My safe people</div>`;people.forEach(p=>{left+=`<div class="cp-row"><div class="cp-av">${initials(p.name)}</div><div><div class="cp-name">${p.name}${p.rel?' — '+p.rel:''}</div>${p.phone?`<div class="cp-detail">${p.phone}</div>`:''}</div></div>`;});left+=`</div>`;}
+
+  if(reasons||forward){right+=`<div class="card-sec"><div class="card-sec-title">Reasons to stay safe</div>`;if(reasons)right+=`<div class="creasonsq">"${reasons}"</div>`;if(forward)right+=`<div style="font-size:10px;color:var(--ink-soft);margin-top:4px;">Looking forward to: ${forward}</div>`;right+=`</div>`;}
+  if(steps.length){right+=`<div class="card-sec"><div class="card-sec-title">My steps</div>`;steps.forEach(s=>{right+=`<div class="cstep"><div class="csn">${s.n}</div><span>${s.t}</span></div>`;});if(safe)right+=`<div style="font-size:10px;color:var(--ink-soft);margin-top:3px;padding-left:4px;border-left:2px solid var(--border-mid);">Safer space: ${safe}</div>`;right+=`</div>`;}
+  right+=`<div class="card-sec"><div class="card-sec-title">Crisis contacts</div>`;
+  right+=`<div class="ccon"><div class="ccon-dot" style="background:${c1.color}"></div><div><div class="ccon-name">${c1.name}</div><div class="ccon-num">${c1.num}</div></div></div>`;
+  right+=`<div class="ccon"><div class="ccon-dot" style="background:${c2.color}"></div><div><div class="ccon-name">${c2.name}</div><div class="ccon-num">${c2.num}</div></div></div>`;
+  right+=`<div class="ccon"><div class="ccon-dot" style="background:#BA7517"></div><div><div class="ccon-name">Hope for Wellness</div><div class="ccon-num">1-855-242-3310 (24/7)</div></div></div>`;
+  right+=`</div>`;
+
+  const h = `<div class="card-page"><div class="card-header"><div><div class="card-hname">${name}'s safety plan</div><div class="card-hmeta">${type.charAt(0).toUpperCase()+type.slice(1)}</div></div><div class="card-hdate">${date}</div></div><div class="card-body"><div class="card-col">${left}</div><div class="card-col">${right}</div></div><div class="card-footer"><div class="card-footer-text">This plan belongs to ${name}. Keep it somewhere you can find it quickly.</div></div></div>`;
+
+  document.getElementById('sc-output').innerHTML = h;
+  const done = document.getElementById('sc-done');
+  done.style.display = 'block';
+  done.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function scReset() {
+  document.querySelectorAll('#view-card input[type=text], #view-card textarea').forEach(el => el.value = '');
+  document.querySelectorAll('#view-card select').forEach(el => el.selectedIndex = 0);
+  document.querySelectorAll('#view-card .chip').forEach(b => b.classList.remove('on','on-amber'));
+  document.getElementById('sc-people').innerHTML = '';
+  scPC = 0; addPerson('sc');
+  document.getElementById('sc-done').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+addPerson('fp');
+addPerson('sc');
+</script>
+</body>
+</html>
